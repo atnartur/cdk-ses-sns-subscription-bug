@@ -1,14 +1,28 @@
-# Welcome to your CDK TypeScript project
+# An AWS CDK project with a SES->SNS subscription bug in CloudFormation 
 
-This is a blank project for CDK development with TypeScript.
+## Bug description
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+This CDK project contains the following infrastructure:
+1. SNS topic
+2. SES configuration set
+3. A configuration set's destination to the SNS topic
 
-## Useful commands
+If you try to deploy this CDK project to an AWS account, you will see the following error:
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
+```
+Resource handler returned message: "Cannot invoke "software.amazon.awssdk.services.ses.model.KinesisFirehoseDestination.iamRoleARN()" because the return value of "software.amazon.awssdk.services.ses.model.EventDestination.kinesisFirehoseDestination()" is null" (RequestToken: ..., HandlerErrorCode: InternalFailure)
+```
+
+I expect the resource creation to be completed successfully.
+
+The event destination contains only a link to the SNS topic. No Kinesis Firehose been mentioned.
+
+`stack.yml` contains the synthesized CloudFormation stack.
+
+## How to run the project
+
+* `npm ci` - install dependencies
+* Set AWS credentials using environment variables or aws-cli profile
 * `npx cdk synth`   emits the synthesized CloudFormation template
+* `npx cdk deploy` - deploy this stack to your default AWS account/region
+* `npx cdk diff`    compare deployed stack with current state
