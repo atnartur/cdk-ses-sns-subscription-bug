@@ -71,7 +71,7 @@ Resources:
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Analytics: v2:deflate64:H4sIAAAAAAAA/22Pzw6CMAyHn8X7qMLFB0DvBrybOYopYEfogJhl724GxgN66Z+v3+/QDNJjCoedniUxVZt0dAdfOm1apWe5eWEBf7U9GZXXvA5LvdiOzOsL1zUoQQGfW67pMQ7akeUSXbR+2QacJ2R3QnHEC/oX2johRKtAseNg8JOoaDkpthVCI/spyyCNPzZClAwjO3oiFGt/A6Z2DaEAAQAA
+      Analytics: v2:deflate64:H4sIAAAAAAAA/22LQQ6CQAxFz8J+qDAbD4DuDbg341BMATuEDhAz4e4GMC7QTdv/+r6G9KghicwksS2buKU7hMIb2ygzyS0IC4Sr68iqrOLtWOfFtWRfX7jFWQkKhMxxRY+hN54cF+gX65ftwHlE9icUT7yif6W9M8+LlaO4obf4aZS0vhS7EqGWw6g1pCkkUS1EcT+wpydCvu03A34HpQABAAA=
     Metadata:
       aws:cdk:path: CdkSesSnsSubscriptionBugStack/CDKMetadata/Default
     Condition: CDKMetadataAvailable
