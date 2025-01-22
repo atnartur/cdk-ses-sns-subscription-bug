@@ -19,6 +19,13 @@ The event destination contains only a link to the SNS topic. No Kinesis Firehose
 
 `stack.yml` contains the synthesized CloudFormation stack.
 
+## Resolution
+
+AWS CloudFormation currently shows an InternalFailure error instead of an AccessDenied error. 
+So, **to resolve the issue you need to add more actions to the policy** (e.g. `ses:GetConfigurationSetEventDestinations, ses:GetConfigurationSet...`).
+
+AWS Support has been notified about the issue with the incorrect error code display. I hope it will be fixed shortly.
+
 ## How to run the project
 
 * `npm ci` - install dependencies
